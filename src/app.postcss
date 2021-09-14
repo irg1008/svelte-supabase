@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	@apply bg-lighter
+		text-darker;
+}
+
+button {
+	@apply p-2
+		min-w-[40px]
+		min-h-[40px]
+    border-button
+		bg-light
+		transform
+    hover:bg-medium
+		active:scale-95
+		text-darker
+    transition-all
+		rounded-custom
+		disabled:pointer-events-none;
+}
+
+@layer utilities {
+	.btn-blue {
+		@apply bg-blue-400
+			text-white;
+	}
+}
