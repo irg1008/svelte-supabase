@@ -1,32 +1,22 @@
-<script context="module" lang="ts">
-	import type { LoadInput } from "@sveltejs/kit";
-	//import api from "$lib/middlewares/api";
-
-	const load = async (_: LoadInput) => {
-		//const { data, error } = await api.getProducts();
-
-		//if (error) {
-		return { status: 404, error: "No such product" };
-		//}
-
-		//return { props: { products: data.products } };
-	};
-
-	export { load };
-</script>
-
 <script lang="ts">
+	import { api } from "$lib/db";
 	import ProductCard from "$lib/components/atoms/ProductCard.svelte";
-	import type { Product } from "$lib/utils/apollo/schemas.types";
-
-	export let products: Product[];
 </script>
 
-<div class="products">
-	{#each products as product (product.id)}
-		<ProductCard {product} />
-	{/each}
-</div>
+{#await api.getProducts()}
+	<p>Waiting to fetch</p>
+{:then res}
+	{#if res.data}
+		<div class="products">
+			{#each res.data as product (product.id)}
+				<ProductCard {product} />
+			{/each}
+		</div>
+	{:else}
+		<p>Error</p>
+		{res.error.message}
+	{/if}
+{/await}
 
 <style lang="postcss">
 	.products {

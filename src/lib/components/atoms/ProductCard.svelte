@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from "$lib/utils/apollo/schemas.types";
+	import type { Product } from "$lib/db";
 	import { cart } from "$lib/stores/cart";
 	import { goto } from "$app/navigation";
 
@@ -12,7 +12,7 @@
 
 <div class="card">
 	<div class="image-holder">
-		<img src={images[0].url} alt={name} />
+		<img src={images[0]} alt={name} />
 	</div>
 	<h1>{name}</h1>
 	<h2 class="price">${price}</h2>

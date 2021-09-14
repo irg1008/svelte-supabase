@@ -1,3 +1,6 @@
 interface ImportMetaEnv {
-
+	VITE_SUPABASE_ENDPOINT: string;
+	VITE_SUPABASE_PUBLIC_API_KEY: string;
+	VITE_SUPABASE_SECRET_API_KEY: string;
+	VITE_SUPABASE_JWT_SECRET: string;
 }

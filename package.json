@@ -11,6 +11,7 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@supabase/supabase-js": "^1.22.6",
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/forms": "^0.3.3",
