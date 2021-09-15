@@ -10,4 +10,26 @@ interface Product {
 
 type PartialProduct = Omit<Product, "id" | "slug">;
 
-export type { Product, PartialProduct };
+interface CustomError {
+	code: number;
+	hint: string;
+	message: string;
+}
+interface DataReturn<T> {
+	data: T;
+	error: CustomError;
+}
+
+type DataPromise<T> = Promise<DataReturn<T>>;
+
+type Document = "products";
+type StorageDocument = "images-bucket";
+
+export type {
+	Product,
+	PartialProduct,
+	CustomError,
+	DataPromise,
+	Document,
+	StorageDocument,
+};

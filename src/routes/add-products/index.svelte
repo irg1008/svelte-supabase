@@ -1,5 +1,6 @@
 <script lang="ts">
-	import client, { api } from "$lib/db";
+	import { api } from "$lib/db";
+	import type { CustomError } from "$lib/db";
 	import type { PartialProduct } from "$lib/db";
 
 	const initialProduct: PartialProduct = {
@@ -12,8 +13,12 @@
 
 	let newProduct = initialProduct;
 	let files: FileList;
+	let errorMsg: string;
 
-	const addNewProduct = () => api.addProduct(newProduct, files);
+	const addNewProduct = async () => {
+		const { error } = await api.addProduct(newProduct, files);
+		errorMsg = error.message;
+	};
 </script>
 
 <form on:submit|preventDefault={addNewProduct}>
@@ -45,4 +50,7 @@
 	</label>
 	<br />
 	<button type="submit">Add new product</button>
+	{#if errorMsg}
+		{errorMsg}
+	{/if}
 </form>
