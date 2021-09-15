@@ -24,12 +24,12 @@
 
 <style lang="postcss">
 	.item {
-		@apply snap-start
+		@apply snap-center
       relative
 			transition-opacity
 			duration-300
 			delay-100
-			min-h-screen
+			h-5/6
       w-full
 			flex;
 	}

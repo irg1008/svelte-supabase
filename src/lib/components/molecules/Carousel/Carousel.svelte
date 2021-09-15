@@ -101,7 +101,6 @@
 <style lang="postcss">
 	.carousel-container {
 		@apply w-full
-			h-screen
 			relative;
 		height: calc(100vh - var(--header-height, 0));
 	}
@@ -109,7 +108,9 @@
 	.carousel {
 		@apply snap
 			snap-y
-			snap-p-8
+			flex
+			flex-col
+			gap-8
 			overflow-y-scroll
 			relative
       h-full

@@ -5,16 +5,16 @@
 
 {#await api.getProducts()}
 	<p>Waiting to fetch</p>
-{:then res}
-	{#if res.data}
+{:then { data, error }}
+	{#if data}
 		<div class="products">
-			{#each res.data as product (product.id)}
+			{#each data as product (product.id)}
 				<ProductCard {product} />
 			{/each}
 		</div>
 	{:else}
 		<p>Error</p>
-		{res.error.message}
+		{error.message}
 	{/if}
 {/await}
 

@@ -17,6 +17,9 @@
 			<a href="/products">products</a>
 		</li>
 		<li>
+			<a href="/add-products">Add products</a>
+		</li>
+		<li>
 			<a href="/cart" class="cart">
 				<div class="cart-icon">
 					<Icon src={ShoppingCart} />

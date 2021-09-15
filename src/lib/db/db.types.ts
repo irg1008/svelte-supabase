@@ -8,4 +8,6 @@ interface Product {
 	images: string[];
 }
 
-export type { Product };
+type PartialProduct = Omit<Product, "id" | "slug">;
+
+export type { Product, PartialProduct };

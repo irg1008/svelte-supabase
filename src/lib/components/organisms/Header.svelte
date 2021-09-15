@@ -12,7 +12,7 @@
 		@apply z-10
 			w-full
 			fixed
-			shadow-lg
+			drop-shadow-sm
 			top-0
 			left-0;
 	}
