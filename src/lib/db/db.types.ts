@@ -20,6 +20,11 @@ interface DataReturn<T> {
 	error: CustomError;
 }
 
+interface BucketImg {
+	publicURL: string;
+	path: string;
+}
+
 type DataPromise<T> = Promise<DataReturn<T>>;
 
 type Document = "products";
@@ -32,4 +37,5 @@ export type {
 	DataPromise,
 	Document,
 	StorageDocument,
+	BucketImg,
 };
